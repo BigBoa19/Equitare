@@ -50,6 +50,7 @@ const FindRides: React.FC = () => {
                 required
               >
                 <option value="">Select your university</option>
+                <option value="Carnegie Mellon University">Carnegie Mellon University</option>
                 <option value="Stanford University">Stanford University</option>
                 <option value="UC Berkeley">UC Berkeley</option>
                 <option value="UCLA">UCLA</option>
