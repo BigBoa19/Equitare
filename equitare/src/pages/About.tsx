@@ -9,7 +9,7 @@ const About: React.FC = () => {
         <h2 className="text-2xl font-semibold mb-4 text-primary-dark">Our Mission</h2>
         <p className="mb-4">
           RideSplit was created with a simple mission: to help university students save money on 
-          transportation costs when traveling to airports during breaks and holidays.
+          transportation costs when traveling to airports during breaks and holidays..
         </p>
         <p>
           We understand that college students are often on tight budgets, and 
