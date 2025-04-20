@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 
 const FindRides: React.FC = () => {
+  const { user } = useAuth();
   const [formData, setFormData] = useState({
-    university: '',
+    university: user?.university || '',
     departureDate: '',
     departureTime: '',
     airport: ''
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -22,6 +27,58 @@ const FindRides: React.FC = () => {
     e.preventDefault();
     setSubmitted(true);
     // In a real app, this would make an API call to search for matches
+  };
+
+  const handleCreateRide = async () => {
+    // Reset states
+    setLoading(true);
+    setError('');
+    setSuccess('');
+    
+    try {
+      // Validate form data
+      if (!formData.university || !formData.airport || !formData.departureDate || !formData.departureTime) {
+        setError('Please fill in all required fields');
+        setLoading(false);
+        return;
+      }
+      
+      // Make API call to create ride
+      const response = await fetch('http://localhost:3001/api/rides', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify({
+          university: formData.university,
+          airport: formData.airport,
+          departureDate: formData.departureDate,
+          departureTime: formData.departureTime,
+          maxPassengers: 3
+        })
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || `Error: ${response.status}`);
+      }
+      
+      const result = await response.json();
+      setSuccess('Your ride has been successfully created!');
+      
+      // Reset form after successful creation
+      setFormData({
+        university: user?.university || '',
+        departureDate: '',
+        departureTime: '',
+        airport: ''
+      });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An unknown error occurred');
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Mock data for search results
@@ -38,6 +95,19 @@ const FindRides: React.FC = () => {
       
       <div className="bg-white shadow-md rounded-lg p-6 mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-primary-dark">Enter Your Travel Details</h2>
+        
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            {error}
+          </div>
+        )}
+        
+        {success && (
+          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+            {success}
+          </div>
+        )}
+        
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -100,12 +170,21 @@ const FindRides: React.FC = () => {
             </div>
           </div>
           
-          <div className="mt-6">
+          <div className="mt-6 flex">
             <button 
               type="submit" 
               className="bg-primary hover:bg-primary-dark text-white py-2 px-6 rounded transition duration-200"
             >
               Search for Matches
+            </button>
+            
+            <button 
+              type="button"
+              onClick={handleCreateRide}
+              disabled={loading}
+              className="ml-4 bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded transition duration-200 disabled:opacity-50"
+            >
+              {loading ? 'Creating...' : 'Create Ride'}
             </button>
           </div>
         </form>

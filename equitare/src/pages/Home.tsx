@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LoginStatus from '../components/LoginStatus';
 
 const Home: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const Home: React.FC = () => {
         <p className="text-xl mb-6">
           Connect with other university students to share rides to the airport and save money!
         </p>
-        <div className="bg-primary-light p-6 rounded-lg shadow-md">
+        <div className="bg-primary-light p-6 rounded-lg shadow-md mb-6">
           <h2 className="text-2xl font-semibold mb-3 text-primary-dark">How It Works</h2>
           <ol className="list-decimal list-inside space-y-2">
             <li>Create an account with your university email</li>
@@ -18,6 +19,9 @@ const Home: React.FC = () => {
             <li>Split the cost and save money!</li>
           </ol>
         </div>
+        
+        {/* Login Status Display */}
+        <LoginStatus />
       </section>
       
       <section className="mb-10">
