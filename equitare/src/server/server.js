@@ -4,6 +4,7 @@ import connectDB from './config/db.js';
 import cors from 'cors';
 import rideRoutes from './routes/rideRoutes.js';
 import authRoutes from './routes/authRoutes.js';
+import messageRoutes from './routes/messageRoutes.js';
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api/rides', rideRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/messages', messageRoutes);
 
 // Basic route for API status
 app.get('/api', (req, res) => {

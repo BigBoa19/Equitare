@@ -6,6 +6,10 @@ const rideSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
+  creatorName: {
+    type: String,
+    required: true
+  },
   university: {
     type: String,
     required: true

@@ -45,8 +45,15 @@ router.post('/', auth, async (req, res) => {
   try {
     const { university, airport, departureDate, departureTime, maxPassengers } = req.body;
     
+    // Get the user info to access their name
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    
     const newRide = new Ride({
       user: req.user.id, // Use authenticated user's ID
+      creatorName: user.name, // Add the creator's name
       university,
       airport,
       departureDate,
@@ -57,6 +64,7 @@ router.post('/', auth, async (req, res) => {
     const savedRide = await newRide.save();
     res.status(201).json(savedRide);
   } catch (error) {
+    console.error('Create ride error:', error);
     res.status(500).json({ message: 'Failed to create ride' });
   }
 });
