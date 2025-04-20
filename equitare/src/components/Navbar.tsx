@@ -21,6 +21,11 @@ const Navbar: React.FC = () => {
           </li>
           {isAuthenticated ? (
             <>
+              <li>
+                <Link to="/messages" className="hover:text-primary-light flex items-center">
+                  Messages
+                </Link>
+              </li>
               <li className="relative group">
                 <button className="hover:text-primary-light flex items-center">
                   <span className="mr-1">{user?.name || 'Account'}</span>
