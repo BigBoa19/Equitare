@@ -27,20 +27,21 @@ const Navbar: React.FC = () => {
             </li>
             <li>
               <Link 
-                to="/find-rides" 
-                className={`${location.pathname === '/find-rides' ? 'text-primary' : 'text-black'} hover:text-primary-light`}
-              >
-                Find Rides
-              </Link>
-            </li>
-            <li>
-              <Link 
                 to="/about" 
                 className={`${location.pathname === '/about' ? 'text-primary' : 'text-black'} hover:text-primary-light`}
               >
                 About
               </Link>
             </li>
+            <li>
+              <Link 
+                to="/find-rides" 
+                className={`${location.pathname === '/find-rides' ? 'text-primary' : 'text-black'} hover:text-primary-light`}
+              >
+                Find Rides
+              </Link>
+            </li>
+
             {isAuthenticated ? (
               <>
                 <li>
