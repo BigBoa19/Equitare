@@ -8,23 +8,13 @@ const About: React.FC = () => {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-primary-dark">Our Mission</h2>
         <p className="mb-4">
-        Equitare’s mission is to empower university students at Carnegie Mellon University in their
+        Equitare's mission is to empower university students at Carnegie Mellon University in their
         travels by making airport transportation more affordable, convenient, and community-driven.        </p>
         <p>
           We understand that college students are often on tight budgets, and 
           transportation to airports can be expensive. By connecting students who are 
           traveling to the same airport at similar times, we help create an affordable 
           and community-oriented solution.
-        </p>
-      </section>
-      
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4 text-primary-dark">How We Started</h2>
-        <p>
-          The idea for Equitare was born when a group of university students realized 
-          how many of their peers were separately ordering rides to the same airport 
-          during holiday breaks. They recognized that coordinating these trips could save 
-          everyone money while also reducing the number of vehicles on the road.
         </p>
       </section>
       
@@ -58,6 +48,65 @@ const About: React.FC = () => {
               Planning travel becomes less stressful when coordinated with others who 
               have similar plans and destinations.
             </p>
+          </div>
+        </div>
+      </section>
+      
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4 text-primary-dark">Our Team</h2>
+        <p className="mb-6">
+          Meet the founding team behind Equitare - passionate students committed to making travel easier and more affordable.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="h-64 bg-gray-200 flex items-center justify-center">
+              {/* Putt's image */}
+              <div className="text-gray-400"><img 
+  src="/public/Putt.png" 
+  alt="Putt" 
+  className="h-64 w-full object-cover"
+/></div>
+            </div>
+            <div className="p-4">
+              <h3 className="text-xl font-medium mb-2 text-primary">Putt</h3>
+              <p className="text-gray-700">
+                Co-founder and chief financial officer. Putt leads the team in financial planning and analysis in planning the business.
+              </p>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="h-64 bg-gray-200 flex items-center justify-center">
+              {/* Noah's image */}
+              <div className="text-gray-400"><img 
+  src="/public/noah.png" 
+  alt="Putt" 
+  className="h-64 w-full object-cover"
+/></div>
+            </div>
+            <div className="p-4">
+              <h3 className="text-xl font-medium mb-2 text-primary">Noah</h3>
+              <p className="text-gray-700">
+                Co-founder and chief technology officer. Noah leads the team in software development, frontend and backend.
+              </p>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="h-64 bg-gray-200 flex items-center justify-center">
+              {/* William's image */}
+              <div className="text-gray-400"><img 
+  src="/public/Will.png" 
+  alt="Putt" 
+  className="h-64 w-full object-cover"
+/></div>
+            </div>
+            <div className="p-4">
+              <h3 className="text-xl font-medium mb-2 text-primary">William</h3>
+              <p className="text-gray-700">
+                Co-founder and lead designer. William leads the team in design and user experience, as well as creating wireframes and mockups.
+              </p>
+            </div>
           </div>
         </div>
       </section>

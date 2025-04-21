@@ -1,12 +1,19 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login, error, loading, clearError } = useAuth();
+  const { login, error, loading, clearError, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  
+  // Navigate to home when authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/');
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -16,12 +23,6 @@ const Login = () => {
     
     // Call login from auth context
     await login(email, password);
-    
-    // Navigate to home on successful login
-    // The auth context will update isAuthenticated if login is successful
-    if (!error) {
-      navigate('/');
-    }
   };
 
   return (
