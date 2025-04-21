@@ -6,7 +6,7 @@ const Home: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <section className="mb-10">
-        <h1 className="text-4xl font-bold mb-4 text-primary-dark">RideSplit</h1>
+        <h1 className="text-4xl font-bold mb-4 text-primary-dark">Equitare</h1>
         <p className="text-xl mb-6">
           Connect with other university students to share rides to the airport and save money!
         </p>
@@ -41,7 +41,7 @@ const Home: React.FC = () => {
       </section>
       
       <section>
-        <h2 className="text-2xl font-semibold mb-4 text-primary-dark">Why Choose RideSplit?</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-primary-dark">Why Choose Equitare?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-secondary-light p-4 rounded-lg shadow-md hover:shadow-lg transition duration-200">
             <h3 className="text-xl font-medium mb-2 text-primary-dark">Save Money</h3>

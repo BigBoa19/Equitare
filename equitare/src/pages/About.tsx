@@ -3,14 +3,13 @@ import React from 'react';
 const About: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-6 text-primary-dark">About RideSplit</h1>
+      <h1 className="text-4xl font-bold mb-6 text-primary-dark">About Equitare</h1>
       
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-primary-dark">Our Mission</h2>
         <p className="mb-4">
-          RideSplit was created with a simple mission: to help university students save money on 
-          transportation costs when traveling to airports during breaks and holidays..
-        </p>
+        Equitare’s mission is to empower university students at Carnegie Mellon University in their
+        travels by making airport transportation more affordable, convenient, and community-driven.        </p>
         <p>
           We understand that college students are often on tight budgets, and 
           transportation to airports can be expensive. By connecting students who are 
@@ -22,7 +21,7 @@ const About: React.FC = () => {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-primary-dark">How We Started</h2>
         <p>
-          The idea for RideSplit was born when a group of university students realized 
+          The idea for Equitare was born when a group of university students realized 
           how many of their peers were separately ordering rides to the same airport 
           during holiday breaks. They recognized that coordinating these trips could save 
           everyone money while also reducing the number of vehicles on the road.
@@ -49,7 +48,7 @@ const About: React.FC = () => {
           <div className="bg-secondary-light p-5 rounded-lg shadow-md">
             <h3 className="text-xl font-medium mb-2 text-primary-dark">Community Building</h3>
             <p>
-              RideSplit helps students connect with peers from their university, 
+              Equitare helps students connect with peers from their university, 
               fostering new friendships and strengthening the campus community.
             </p>
           </div>
@@ -68,8 +67,9 @@ const About: React.FC = () => {
         <p className="mb-4">
           Have questions, suggestions, or feedback? We'd love to hear from you!
         </p>
+        <a href="/pdf/BusinessPlan.pdf" target="_blank" rel="noopener noreferrer">Business Plan</a>
         <p>
-          Email us at: <a href="mailto:support@ridesplit.com" className="text-primary hover:text-primary-dark hover:underline">support@ridesplit.com</a>
+          Email us at: <a href="mailto:support@equitare.com" className="text-primary hover:text-primary-dark hover:underline">support@equitare.com</a>
         </p>
       </section>
     </div>

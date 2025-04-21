@@ -6,11 +6,14 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Archivo', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      },
       colors: {
         primary: {
-          DEFAULT: '#60a5fa', // Light blue
-          light: '#93c5fd',
-          dark: '#3b82f6',
+          DEFAULT: '#636AE8', // Light blue
+          light: '#6b71e3',
+          dark: '#3c43c7',
         },
         secondary: {
           DEFAULT: '#e5e7eb', // Light gray

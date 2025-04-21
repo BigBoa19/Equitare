@@ -9,6 +9,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [university, setUniversity] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [emailError, setEmailError] = useState('');
   const { register, error, loading, clearError } = useAuth();
   const navigate = useNavigate();
 
@@ -18,10 +19,17 @@ const Register = () => {
     // Clear any previous errors
     clearError();
     setPasswordError('');
+    setEmailError('');
     
     // Check if passwords match
     if (password !== confirmPassword) {
       setPasswordError('Passwords do not match');
+      return;
+    }
+    
+    // Check if email ends with .edu
+    if (!email.endsWith('.edu')) {
+      setEmailError('Please use a valid .edu email address');
       return;
     }
     
@@ -54,9 +62,9 @@ const Register = () => {
           </p>
         </div>
         
-        {(error || passwordError) && (
+        {(error || passwordError || emailError) && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-            {error || passwordError}
+            {error || passwordError || emailError}
           </div>
         )}
         

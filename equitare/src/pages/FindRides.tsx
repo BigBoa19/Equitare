@@ -390,7 +390,7 @@ const FindRides: React.FC = () => {
                           <div className="flex space-x-2">
                             <button 
                               onClick={() => handleMessageUser(ride)}
-                              className="bg-green-500 text-white py-1 px-3 rounded text-sm hover:bg-green-600 transition duration-200"
+                              className="bg-primary text-white py-1 px-3 rounded text-sm transition duration-200"
                             >
                               Message
                             </button>
